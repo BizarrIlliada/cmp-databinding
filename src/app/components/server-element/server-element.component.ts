@@ -4,7 +4,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   selector: 'app-server-element',
   templateUrl: './server-element.component.html',
   styleUrls: ['./server-element.component.css'],
-  encapsulation: ViewEncapsulation.None // None ShadowDom
+  encapsulation: ViewEncapsulation.Emulated // None ShadowDom
 })
 export class ServerElementComponent {
   @Input('serverElement') element: {
