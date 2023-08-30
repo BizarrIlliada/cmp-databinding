@@ -25,9 +25,6 @@ export class AppComponent {
       content: serverData.serverContent,
       type: 'server',
     })
-
-    console.log(123);
-    
   };
   onBlueprintAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({
@@ -35,8 +32,5 @@ export class AppComponent {
       content: serverData.serverContent,
       type: 'blueprint',
     })
-
-    console.log(123);
-    
   };
 }
