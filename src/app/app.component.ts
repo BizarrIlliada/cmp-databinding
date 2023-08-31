@@ -18,6 +18,16 @@ export class AppComponent {
       content: 'Lorem Ipsum1',
     },
   ];
+  testVal = 'Some string';
+  isExist = true;
+
+  constructor() {
+    setTimeout(() => {
+      // this.testVal = 'New some string';
+      this.serverElements[0].name = 'Changed!';
+      // this.isExist = false;
+    }, 2000);
+  }
 
   onServerAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({

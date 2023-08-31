@@ -2,14 +2,21 @@
   <app-cockpit
     (srvCreated)="onServerAdded($event)"
     (bpCreated)="onBlueprintAdded($event)"
+    [someString]="testVal"
+    *ngIf="isExist"
   ></app-cockpit>
   <hr>
   <div class="row">
     <div class="col-xs-12">
       <app-server-element
-        *ngFor="let server of serverElements"
-        [serverElement]="server"
+      *ngFor="let server of serverElements"
+      [serverElementName]="server.name"
       >
+        <em #emTag>1111</em>
+        <p>
+          <strong *ngIf="server.type === 'server'" style="color: red">{{ server.content }}</strong>
+          <em *ngIf="server.type === 'blueprint'">{{ server.content }}</em>
+        </p>
       </app-server-element>
     </div>
   </div>

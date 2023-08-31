@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ContentChild, ElementRef, AfterViewInit, AfterViewChecked, AfterContentChecked } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -6,10 +6,11 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./server-element.component.css'],
   encapsulation: ViewEncapsulation.Emulated // None ShadowDom
 })
-export class ServerElementComponent {
-  @Input('serverElement') element: {
-    type: string,
-    name: string,
-    content: string,
+export class ServerElementComponent implements AfterContentChecked {
+  @Input('serverElementName') name: string
+  @ContentChild('emTag', {static: true}) emTag: ElementRef
+
+  ngAfterContentChecked(): void {
+    console.log(this.emTag.nativeElement.textContent);
   }
 }
